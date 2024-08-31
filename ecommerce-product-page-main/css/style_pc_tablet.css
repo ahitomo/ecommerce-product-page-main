@@ -1,0 +1,625 @@
+* {
+    font-family: "Kumbh Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    font-style: normal;
+    font-variation-settings:
+    "YOPQ" 300;
+    user-select: none;
+    /* outline: solid 1px #000;  */
+}
+
+body {
+    margin: 0 15%;
+    padding: 0;
+    position: relative;
+}
+
+/* ヘッダー */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 14vh;
+    border-bottom: solid 2px hsl(223, 64%, 98%);
+}
+
+.header-left {
+    width: 140px;
+    padding-bottom: 3px;
+}
+
+#menu {
+    display: none;
+}
+
+ul {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 2vw;
+    width: 70vw;
+    height: 100%;
+    padding-left: 4vw;
+}
+
+li, li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: hsl(219, 9%, 45%);
+    height: 100%;
+}
+
+li a:hover {
+    border-bottom: solid 4px hsl(26, 100%, 55%);
+    box-sizing: border-box;
+    transform: translate(0, 1.5px);
+}
+
+li a:hover {
+    color: hsl(220, 13%, 13%);}
+
+.header-right {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 12vw;
+    padding-bottom: 3px;
+}
+
+.cart-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+.cart-button:hover {
+    cursor: pointer;
+}
+
+.cart-button:hover path {
+    fill: hsl(0, 0%, 0%);
+}
+
+.cart-button:hover + .cart-box {
+    visibility: visible;
+}
+
+.fade-out {
+    animation: fadeOut 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.cart-box {
+    display: none;
+}
+
+/* カート右上の数字 */
+.cart-quantity-box {
+    position: absolute;
+    transform: translate(50%, -80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 10px;
+    background-color: hsl(26, 100%, 55%);
+    border-radius: 8px;
+    border: solid 1px hsl(26, 100%, 55%);
+    visibility: hidden;
+
+    p {
+        font-size: 8px;
+        color: hsl(0, 0%, 100%);
+        margin: 0;
+    }
+}
+
+#avatar:hover {
+    border: solid 2px hsl(26, 100%, 55%);
+}
+
+/* カートの中身 */
+.cart-box {
+    position: absolute;
+    right: -4vw;
+    top: 7vw;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0px 20px 30px -5px hsl(220, 14%, 75%);
+    width: 400px;
+    height: auto;
+    border: solid 1px hsl(0, 0%, 100%);
+    border-radius: 10px;
+}
+
+.cart-box:hover {
+    visibility: visible;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    border-bottom: solid 2px hsl(223, 64%, 98%);
+    height: 46px;
+    font-weight: 700;
+    padding-left: 24px;
+}
+
+.cart-content {
+    color: hsl(219, 9%, 45%);
+    font-weight: 700;
+    width: 100%;
+    height: 200px;
+}
+
+/* 空のとき */
+.cart-empty {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+/* 中身があるとき */
+.cart-not-empty {
+    padding-inline: 24px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-flame {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cart-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart-text p {
+    margin-block: 0;
+}
+
+.total-price-box, .total-price {
+    font-weight: bold;
+    color: hsl(0, 0%, 0%);
+}
+
+.delete {
+    margin-block: auto;
+    cursor: pointer;
+}
+
+.check-out-button {
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 3.2vw;
+    padding-block: 16px;
+    background-color: hsl(26, 100%, 55%);
+    border: solid 1px hsl(26, 100%, 55%);
+    border-radius: 8px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.check-out-button:hover {
+    cursor: pointer;
+    opacity: 75%;
+}
+
+#avatar {
+    border-radius: 50%;
+    border: solid 2px hsl(0, 0%, 100%);
+    cursor: pointer;
+    height: 5vh;
+    width: auto;
+}
+
+/* ナビ */
+nav {
+    display: none;
+}
+
+/* メイン */
+main {
+    margin-block: 9vh;
+    display: flex;
+}
+
+/* メイン左 */
+.product-img {
+    width: 34vw;
+    margin-inline: 4vw;
+}
+
+.main-flame {
+    width: 100%;
+}
+
+.main-img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    cursor: pointer;
+    vertical-align: bottom;
+}
+
+.main-previous, .main-next {
+    display: none;
+}
+
+.main-thumbnail {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-thumbnail div {
+    width: 5vw;
+    height: 5vw;
+    margin-top: 4vh;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.main-thumbnail img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.main-thumbnail .main-thumbnail-flame {
+    border: 2px solid hsl(26, 100%, 55%);
+}
+
+.main-opacity {
+    opacity: 50%;
+}
+
+.main-thumbnail img:hover {
+    opacity: 50%;
+    cursor: pointer;
+}
+
+/* メイン右 */
+.product-info {
+    width: 40vw;
+    margin-inline: 4vw;
+    margin-block: auto;
+}
+
+.brand {
+    font-size: 16px;
+    font-weight: 700;
+    color: hsl(219, 9%, 45%);
+    margin-block: 0;
+}
+
+.product-name {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 1.5px;
+    margin-block: 2vh;
+}
+
+.product-detail {
+    color: hsl(219, 9%, 45%);
+    margin-block: 3vh;
+}
+
+.price-now {
+    display: flex;
+    align-items: center;
+}
+
+.price-after, .price {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.discount {
+    display: flex;
+    align-items: center;
+    background-color: hsl(220, 13%, 13%);
+    border-radius: 5px;
+    padding: 0px 8px;
+    margin-inline: 20px;
+    color: hsl(0, 0%, 100%);
+    font-weight: 700;
+    height: 3.5vh;
+}
+
+.price-before {
+    font-weight: 700;
+    color: hsl(219, 9%, 45%);
+    text-decoration: line-through;
+    margin-block: 0.5vh;
+}
+
+.select {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.6vw;
+    margin-block: 7vh;
+}
+
+.input-box {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    background-color: hsl(223, 64%, 98%);
+    border-radius: 8px;
+}
+
+input {
+    border: none;
+    text-align: center;
+    font-weight: 700;
+    width: 6vw;
+    outline: none;
+    background-color: hsl(223, 64%, 98%);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.input-minus, .input-plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.input-minus:hover img {
+    opacity: 75%;
+}
+
+.input-plus:hover img {
+    opacity: 75%;
+}
+
+.add-to-cart-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 4vw;
+    padding-block: 16px;
+    background-color: hsl(26, 100%, 55%);
+    border: solid 1px hsl(26, 100%, 55%);
+    border-radius: 8px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.add-to-cart-button:hover {
+    cursor: pointer;
+    opacity: 75%;
+}
+
+.add-to-cart-button svg {
+    margin-right: 1vw;
+}
+
+.add-to-cart-button svg path {
+    fill: hsl(0, 0%, 0%);
+}
+
+/* モーダル */
+.modal-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: hsl(0, 0%, 0%, 75%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.modal-body {
+    width: 33vw;
+    margin-block: auto;
+    opacity: unset;
+}
+
+.modal-close {
+    display: block;
+    margin-left: auto;
+    cursor: pointer;
+    padding: 8px;
+    margin-bottom: 1vh;
+    transform: translateX(8px);
+}
+
+.modal-close path {
+    fill: hsl(223, 64%, 98%);
+}
+
+.modal-close:hover path {
+    fill: hsl(26, 100%, 55%);
+}
+
+.modal-flame {
+    position: relative;
+    height: 33vw;
+}
+
+.modal-previous, .modal-next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(0, 0%, 100%);
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    cursor: pointer;
+    position: absolute;
+}
+
+.modal-previous {
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-next {
+    bottom: 50%;
+    left: 100%;
+    transform: translate(-50%, 50%);
+}
+
+.modal-previous svg path,
+.modal-next svg path {
+    stroke: hsl(219, 9%, 45%);
+}
+
+.modal-previous { &:hover svg path {
+    stroke: hsl(26, 100%, 55%);
+}}
+
+.modal-next { &:hover svg path {
+    stroke: hsl(26, 100%, 55%);
+}}
+
+.modal-img  {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    vertical-align: bottom;
+}
+
+.modal-thumbnail {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-thumbnail div {
+    width: 5vw;
+    height: 5vw;
+    margin-inline: 1vw;
+    border-radius: 8px;
+    margin-top: 4vh;
+    background-color: hsl(0, 0%, 100%);
+    overflow: hidden;
+    position: relative;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.modal-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-thumbnail .modal-thumbnail-flame {
+    border: 2px solid hsl(26, 100%, 55%);
+}
+
+.modal-opacity {
+    opacity: 50%;
+}
+
+.modal-thumbnail img:hover {
+    opacity: 50%;
+    cursor: pointer;
+}
+
+@media screen and (max-width:1560px) {
+    body {
+        margin: 0 10%;
+    }
+
+    .main-thumbnail div {
+        width: 6vw;
+        height: 6vw;
+    }
+
+    .add-to-cart-button {
+        padding-inline: 4vw;
+    }
+}
+
+@media screen and (max-width:1260px) {
+    .cart-box {
+        top: 9vw;
+    }
+    
+    .add-to-cart-button {
+        padding-inline: 3vw;
+    }
+}
+
+@media screen and (max-width:1100px) {
+    .add-to-cart-button {
+        padding-inline: 6%;
+    }
+
+    .add-to-cart-button svg {
+        margin-right: 2%;
+    }
+}
+
+@media screen and (max-width:920px) {
+    body {
+        margin: 0 4vw;
+    }
+
+    .header-left {
+        width: 120px;
+        padding-bottom: 3px;
+    }
+
+    .cart-box {
+        top: 10vw;
+    }
+
+    .main-thumbnail div {
+        width: 7vw;
+        height: 7vw;
+    }
+}

@@ -1,0 +1,710 @@
+* {
+    font-family: "Kumbh Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    font-style: normal;
+    font-variation-settings:
+    "YOPQ" 300;
+    user-select: none;
+    /* outline: solid 1px #000;  */
+}
+
+body {
+    margin: 0 5vw;
+    padding: 0;
+    position: relative;
+}
+
+/* ヘッダー */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh;
+    border-bottom: solid 2px hsl(223, 64%, 98%);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    padding-bottom: 3px;
+}
+
+#menu {
+    padding: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+header ul {
+    display: none;
+    justify-content: start;
+    align-items: center;
+    gap: 2vw;
+    width: 70vw;
+    height: 100%;
+    padding-left: 4vw;
+}
+
+header li, header li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: hsl(219, 9%, 45%);
+    height: 100%;
+}
+
+header li a:hover {
+    border-bottom: solid 4px hsl(26, 100%, 55%);
+    transform: translate(0, 2px);
+}
+
+header li a:hover {
+    color: hsl(220, 13%, 13%);}
+
+.header-right {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:8px;
+    padding-bottom: 3px;
+
+}
+
+.cart-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+.cart-button:hover {
+    cursor: pointer;
+}
+
+.cart-button:hover path {
+    fill: hsl(0, 0%, 0%);
+}
+
+.cart-button:hover + .cart-box {
+    visibility: visible;
+}
+
+.fade-out {
+    animation: fadeOut 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+/* カート右上の数字 */
+.cart-quantity-box {
+    position: absolute;
+    transform: translate(50%, -80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 10px;
+    background-color: hsl(26, 100%, 55%);
+    border-radius: 8px;
+    border: solid 1px hsl(26, 100%, 55%);
+    visibility: hidden;
+
+    p {
+        font-size: 8px;
+        color: hsl(0, 0%, 100%);
+        margin: 0;
+    }
+}
+
+#avatar {
+    border-radius: 50%;
+    border: solid 2px hsl(0, 0%, 100%);
+    cursor: pointer;
+    height: 4vh;
+    width: auto;
+}
+
+#avatar:hover {
+    border: solid 2px hsl(26, 100%, 55%);
+}
+
+/* カートの中身 */
+.cart-box {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 9.2vh;
+    right: -3.6vw;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0px 20px 30px -5px hsl(0, 0%, 0%, 50%);
+    width: 400px;
+    height: auto;
+    border: solid 1px hsl(0, 0%, 100%);
+    border-radius: 10px;
+}
+
+.cart-box:hover {
+    visibility: visible;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    border-bottom: solid 2px hsl(223, 64%, 98%);
+    height: 60px;
+    font-weight: 700;
+    padding-left: 24px;
+}
+
+.cart-content {
+    color: hsl(219, 9%, 45%);
+    font-weight: 700;
+    width: 100%;
+    height: 200px;
+}
+
+/* 空のとき */
+.cart-empty {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: auto;
+    font-weight: 700;
+}
+
+/* 中身があるとき */
+.cart-not-empty {
+    padding-inline: 24px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-flame {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cart-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart-text p {
+    margin-block: 0;
+    line-height: 2;
+}
+
+.total-price-now, .total-price {
+    font-weight: bold;
+    color: hsl(0, 0%, 0%);
+}
+
+.delete {
+    margin-block: auto;
+    cursor: pointer;
+}
+
+.check-out-button {
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 3.2vw;
+    padding-block: 16px;
+    background-color: hsl(26, 100%, 55%);
+    border: solid 1px hsl(26, 100%, 55%);
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* ナビ */
+nav {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    background-color: hsl(0, 0%, 0%, 75%);
+    width: 100vw;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nav-body {
+    background-color: hsl(0, 0%, 100%);
+    width: 65%;
+    height: 100%;
+}
+
+.nav-header {
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    margin-inline: 5vw;
+}
+
+#nav-close {
+    padding: 8px;
+}
+
+.nav-body ul {
+    padding: 0;
+    margin-left: calc(5vw + 8px);
+    list-style: none;
+}
+
+.nav-body ul li a {
+    font-weight: 700;
+    color: hsl(0, 0%, 0%);
+    line-height: 3;
+    text-decoration: none;
+}
+
+/* メイン */
+main {
+    position: relative;
+}
+
+.product-img {
+    height: 88vw;
+}
+
+.main-flame {
+    width: 100vw;
+    height: 88vw;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.main-img {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    object-fit: cover;
+    cursor: pointer;
+    vertical-align: bottom;
+}
+
+.main-previous, .main-next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(0, 0%, 100%);
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    cursor: pointer;
+    position: absolute;
+}
+
+.main-previous {
+    top: 50%;
+    transform: translate(50%, -50%);
+}
+
+.main-next {
+    bottom: 50%;
+    left: 100%;
+    transform: translate(-150%, 50%);
+}
+
+.main-previous svg path,
+.main-next svg path {
+    stroke: hsl(219, 9%, 45%);
+}
+
+.main-previous { &:hover svg path {
+    stroke: hsl(26, 100%, 55%);
+}}
+
+.main-next { &:hover svg path {
+    stroke: hsl(26, 100%, 55%);
+}}
+
+.main-thumbnail {
+    display: none;
+    justify-content: space-between;
+}
+
+.main-thumbnail div {
+    width: 5vw;
+    height: 5vw;
+    margin-top: 4vh;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.main-thumbnail img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /* 選択されてるときに画像が小さくなる！！！ */
+}
+
+.main-thumbnail-flame {
+    border: 2px solid hsl(26, 100%, 55%);
+    box-sizing: border-box;
+}
+
+.main-opacity {
+    opacity: 50%;
+}
+
+.main-thumbnail img:hover {
+    opacity: 50%;
+    cursor: pointer;
+}
+
+/* メイン右 */
+.product-info {
+    margin-block: 24px;
+}
+
+.brand {
+    font-size: 16px;
+    font-weight: 700;
+    color: hsl(219, 9%, 45%);
+    margin-block: 0;
+}
+
+.product-name {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 1.5px;
+    margin-block: 2vh;
+}
+
+.product-detail {
+    color: hsl(219, 9%, 45%);
+    margin-block: 3vh;
+}
+
+.price-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.price-now {
+    display: flex;
+    align-items: center;
+}
+
+.price-after, .price {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.discount {
+    display: flex;
+    align-items: center;
+    background-color: hsl(220, 13%, 13%);
+    border-radius: 5px;
+    padding: 0px 8px;
+    margin-inline: 20px;
+    color: hsl(0, 0%, 100%);
+    font-weight: 700;
+    height: 3.5vh;
+}
+
+.price-before {
+    text-align: center;
+    font-weight: 700;
+    color: hsl(219, 9%, 45%);
+    text-decoration: line-through;
+    margin-block: 0.5vh;
+    display: flex;
+    align-items: center;
+}
+
+.select {
+    justify-content: space-between;
+    margin-block: 7vh;
+}
+
+.input-box {
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: hsl(223, 64%, 98%);
+    border-radius: 8px;
+    /* padding-block: 16px; */
+}
+
+input {
+    border: none;
+    text-align: center;
+    justify-content: centers;
+    font-weight: 700;
+    width: 100%;
+    outline: none;
+    background-color: hsl(223, 64%, 98%);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.input-minus, .input-plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 100%;
+    cursor: pointer;
+    padding-block: 16px;
+}
+
+.input-minus:hover img {
+    opacity: 75%;
+}
+
+.input-plus:hover img {
+    opacity: 75%;
+}
+
+.add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+    padding-block: 16px;
+    width: 100%;
+    background-color: hsl(26, 100%, 55%);
+    border: solid 1px hsl(26, 100%, 55%);
+    border-radius: 8px;
+    box-shadow: 0px 20px 30px -5px hsl(25, 100%, 94%);
+    font-weight: 700;
+}
+
+.add-to-cart-button:hover {
+    cursor: pointer;
+    opacity: 75%;
+}
+
+.add-to-cart-button svg {
+    margin-right: 1vw;
+}
+
+.add-to-cart-button svg path {
+    fill: hsl(0, 0%, 0%);
+}
+
+/* モーダル */
+.modal-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: hsl(0, 0%, 0%, 75%);
+    position: absolute;
+    top: 0;
+    left: -15vw;
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.modal-body {
+    width: 33vw;
+    margin-block: auto;
+    opacity: unset;
+}
+
+.modal-close {
+    display: block;
+    margin-left: auto;
+    cursor: pointer;
+    margin-bottom: 2vh;
+}
+
+.modal-close path {
+    fill: hsl(0, 0%, 100%);
+}
+
+.modal-close:hover path {
+    fill: hsl(26, 100%, 55%);
+}
+
+.modal-flame {
+    position: relative;
+    height: 33vw;
+}
+
+.modal-previous, .modal-next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(0, 0%, 100%);
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    cursor: pointer;
+    position: absolute;
+}
+
+.modal-previous {
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-next {
+    bottom: 50%;
+    left: 100%;
+    transform: translate(-50%, 50%);
+}
+
+.modal-previous svg path,
+.modal-next svg path {
+    stroke: hsl(219, 9%, 45%);
+}
+
+.modal-previous { &:hover svg path {
+    stroke: hsl(26, 100%, 55%);
+}}
+
+.modal-next { &:hover svg path {
+    stroke: hsl(26, 100%, 55%);
+}}
+
+.modal-img  {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    vertical-align: bottom;
+}
+
+.modal-thumbnail {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-thumbnail div {
+    width: 5vw;
+    height: 5vw;
+    margin-inline: 1vw;
+    border-radius: 8px;
+    margin-top: 4vh;
+    background-color: hsl(0, 0%, 100%);
+    overflow: hidden;
+    position: relative;
+}
+
+.modal-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-thumbnail-flame {
+    border: 2px solid hsl(26, 100%, 55%);
+    box-sizing: border-box;
+}
+
+.modal-opacity {
+    opacity: 50%;
+}
+
+.modal-thumbnail img:hover {
+    opacity: 50%;
+    cursor: pointer;
+}
+
+@media screen and (max-width:480px) {
+    .cart-box {
+        width: 96vw;
+        top: 9vh;
+        left: 50%;
+        right: 0;
+        transform: translate(-50%, 0);
+    }
+
+    .main-previous, .main-next {
+        width: 40px;
+        height: 40px;
+    }
+
+    .main-previous {
+    transform: translate(30%, -50%);
+}
+
+    .main-next {
+        transform: translate(-130%, 50%);
+    }
+
+}
+
+/* js */
+.display {
+    display: block;
+}
+
+.nav-open {
+    display: block;
+}
+
+.open-anime {
+    animation-name: openAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes openAnime {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.close-anime {
+    animation-name: closeAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes closeAnime {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
